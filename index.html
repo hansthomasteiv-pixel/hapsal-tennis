@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tennis ja padel trennid Haapsalus. Broneeri suvised treeningud ja registreeru turniiridele.">
+<meta property="og:title" content="Hapsal Tennis & Padel – Suvised trennid mere ääres">
+<meta property="og:description" content="Broneeri 1:1 või väikese grupi tennis ja padel trennid Haapsalus.">
+<meta property="og:type" content="website">
+<title>Hapsal Tennis & Padel – Suvised trennid mere ääres</title>
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600,700&f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%231a5c3a' stroke='%23f0ebe3' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23c8d96f' stroke-width='2'/%3E%3Cpath d='M9 16h14M16 9v14' stroke='%23c8d96f' stroke-width='1.5'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="header" id="header">
+  <nav class="nav container">
+    <a href="#" class="nav__logo" aria-label="Hapsal Tennis & Padel">
+      <svg class="nav__logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/>
+        <circle cx="20" cy="20" r="9" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+        <path d="M11 20h18M20 11v18" stroke="currentColor" stroke-width="1.2" opacity="0.6"/>
+        <path d="M13 13l14 14M27 13L13 27" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+      </svg>
+      <span class="nav__logo-text">Hapsal<br><span class="nav__logo-sub">Tennis & Padel</span></span>
+    </a>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#treener" data-i18n="nav_coach">Treener</a></li>
+      <li><a href="#hinnad" data-i18n="nav_pricing">Hinnad</a></li>
+      <li><a href="#turniirid" data-i18n="nav_tournaments">Turniirid</a></li>
+      <li><a href="#valjakud" data-i18n="nav_courts">Väljakud</a></li>
+      <li><a href="#kkk" data-i18n="nav_faq">KKK</a></li>
+      <li><a href="#broneering" class="nav__cta" data-i18n="nav_book">Broneeri</a></li>
+    </ul>
+    <div class="nav__right">
+      <div class="lang-toggle" role="group" aria-label="Language selection">
+        <button class="lang-btn active" data-lang="et" aria-pressed="true">ET</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+<section class="hero" id="hero">
+  <div class="hero__bg">
+    <img src="./assets/courts-2.jpg" alt="Padeli ja tennise väljakud Haapsalus" class="hero__img" loading="eager">
+    <div class="hero__overlay"></div>
+  </div>
+  <div class="hero__content container">
+    <h1 class="hero__title" data-i18n="hero_title">Suvised tennis ja padel trennid mere ääres</h1>
+    <p class="hero__sub" data-i18n="hero_sub">Broneeri treening Haapsalus – arendame koos tehnikat, mängutaktikat ja enesekindlust.</p>
+    <a href="#broneering" class="btn btn--primary btn--lg" data-i18n="hero_cta">Broneeri trenn</a>
+  </div>
+</section>
+<section class="section section--alt" id="treener">
+  <div class="container coach-grid">
+    <div class="coach__img-wrap">
+      <img src="./assets/coach.jpg" alt="Treener väljakul" class="coach__img" loading="lazy">
+    </div>
+    <div class="coach__text">
+      <p class="section__label" data-i18n="coach_label">Treener</p>
+      <h2 class="section__title" data-i18n="coach_title">Mängin ise tennist iga päev ja treenin 2–3,5 tundi päevas</h2>
+      <p class="coach__desc" data-i18n="coach_desc">Aitan täiesti algajal esimese servi ja löögid selgeks saada ning edasijõudnul oma mängu järgmisele tasemele viia. Minu eesmärk on muuta iga trenn nii harivaks kui ka lõbusaks – sest sport peab pakkuma rõõmu.</p>
+      <ul class="coach__stats" role="list">
+        <li class="coach__stat"><span class="coach__stat-num">2–3,5h</span><span class="coach__stat-text" data-i18n="coach_stat1">igapäevane treening</span></li>
+        <li class="coach__stat"><span class="coach__stat-num">3</span><span class="coach__stat-text" data-i18n="coach_stat2">väljakut (1 tennis + 2 padel)</span></li>
+        <li class="coach__stat"><span class="coach__stat-num">35€</span><span class="coach__stat-text" data-i18n="coach_stat3">alates / tund</span></li>
+      </ul>
+      <a href="#broneering" class="btn btn--primary" data-i18n="coach_cta">Broneeri treening</a>
+    </div>
+  </div>
+</section>
+<section class="section" id="hinnad">
+  <div class="container">
+    <p class="section__label section__label--center" data-i18n="pricing_label">Hinnad</p>
+    <h2 class="section__title section__title--center" data-i18n="pricing_title">Trennid & paketid</h2>
+    <p class="section__desc" data-i18n="pricing_desc">Pakume nii individuaalset treeningut kui ka väikeseid grupitunde. Kõik tasemed on teretulnud.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-card__icon">🎾</div>
+        <h3 class="price-card__name" data-i18n="price1_name">Tennis 1:1</h3>
+        <p class="price-card__detail" data-i18n="price1_detail">Individuaaltreening</p>
+        <div class="price-card__price">35 €<span class="price-card__unit" data-i18n="price1_unit"> / 60 min</span></div>
+        <p class="price-card__desc" data-i18n="price1_desc">Personaalne lähenemine, tehnika ja taktika arendamine sinu tempos.</p>
+        <a href="#broneering" class="btn btn--outline" data-i18n="price_cta">Broneeri</a>
+      </div>
+      <div class="price-card">
+        <div class="price-card__icon">🎾🎾</div>
+        <h3 class="price-card__name" data-i18n="price2_name">Tennis 2–3 inimest</h3>
+        <p class="price-card__detail" data-i18n="price2_detail">Väikegrupi treening</p>
+        <div class="price-card__price">20 €<span class="price-card__unit" data-i18n="price2_unit"> / inimene / 60–75 min</span></div>
+        <p class="price-card__desc" data-i18n="price2_desc">Treenige koos sõprade või perega – lõbus ja soodne variant.</p>
+        <a href="#broneering" class="btn btn--outline" data-i18n="price_cta">Broneeri</a>
+      </div>
+      <div class="price-card">
+        <div class="price-card__icon">🏓</div>
+        <h3 class="price-card__name" data-i18n="price3_name">Padel 2–4 inimest</h3>
+        <p class="price-card__detail" data-i18n="price3_detail">Grupi padel treening</p>
+        <div class="price-card__price">20 €<span class="price-card__unit" data-i18n="price3_unit"> / inimene / 90 min</span></div>
+        <p class="price-card__desc" data-i18n="price3_desc">Padel on kiirelt kasvav sport – tule proovi, reeglid ja tehnika selgeks.</p>
+        <a href="#broneering" class="btn btn--outline" data-i18n="price_cta">Broneeri</a>
+      </div>
+      <div class="price-card price-card--featured">
+        <div class="price-card__badge" data-i18n="price4_badge">Sooduspakk</div>
+        <div class="price-card__icon">⭐</div>
+        <h3 class="price-card__name" data-i18n="price4_name">Suvine stardipakk</h3>
+        <p class="price-card__detail" data-i18n="price4_detail">4 treeningut</p>
+        <div class="price-card__price">120 €<span class="price-card__unit" data-i18n="price4_unit"> / pakk</span></div>
+        <p class="price-card__desc" data-i18n="price4_desc">Säästa 20 € – ideaalne viis alustada oma tennise- või padeliteekonda sel suvel.</p>
+        <a href="#broneering" class="btn btn--primary" data-i18n="price_cta">Broneeri</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--dark" id="turniirid">
+  <div class="container">
+    <div class="tournament-grid">
+      <div class="tournament__text">
+        <p class="section__label" data-i18n="tourn_label">Turniirid</p>
+        <h2 class="section__title" data-i18n="tourn_title">Suvised turniirid Haapsalus</h2>
+        <p class="tournament__desc" data-i18n="tourn_desc">Korraldame suve jooksul tennise ja padeli turniire nii algajatele kui edasijõudnutele.</p>
+        <ul class="tournament__list" role="list">
+          <li data-i18n="tourn_item1">Tennise ja padeli kategooriad</li>
+          <li data-i18n="tourn_item2">Algaja-, harrastus- ja edasijõudnute tase</li>
+          <li data-i18n="tourn_item3">Auhinnad parimatele</li>
+          <li data-i18n="tourn_item4">Lõbus ja sõbralik õhkkond</li>
+        </ul>
+        <a href="#broneering" class="btn btn--primary btn--lg" data-i18n="tourn_cta">Registreeru turniirile</a>
+      </div>
+      <div class="tournament__visual">
+        <div class="tournament__card">
+          <span class="tournament__card-emoji">🏆</span>
+          <h3 data-i18n="tourn_card_title">Järgmine turniir</h3>
+          <p class="tournament__card-date" data-i18n="tourn_card_date">Juuni – august 2026</p>
+          <p class="tournament__card-info" data-i18n="tourn_card_info">Täpsed kuupäevad tulemas peagi</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="valjakud">
+  <div class="container">
+    <p class="section__label section__label--center" data-i18n="courts_label">Väljakud</p>
+    <h2 class="section__title section__title--center" data-i18n="courts_title">Meie väljakud looduse keskel</h2>
+    <p class="section__desc" data-i18n="courts_desc">Üks tenniseväljak ja kaks padeli väljakut, ümbritsetud männimetsast ja mere lähedusest.</p>
+    <div class="courts-gallery">
+      <div class="courts-gallery__item courts-gallery__item--large">
+        <img src="./assets/courts-3.jpg" alt="Tenniseväljak pallimaisnga ja männimetsaga Haapsalus" loading="lazy">
+      </div>
+      <div class="courts-gallery__item">
+        <img src="./assets/courts-1.jpg" alt="Padeli väljak päikeseloojangul" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--alt" id="kuidas">
+  <div class="container">
+    <p class="section__label section__label--center" data-i18n="how_label">Kuidas see käib?</p>
+    <h2 class="section__title section__title--center" data-i18n="how_title">Kolm lihtsat sammu</h2>
+    <div class="steps-grid">
+      <div class="step"><div class="step__number">1</div><h3 class="step__title" data-i18n="step1_title">Broneeri</h3><p class="step__desc" data-i18n="step1_desc">Täida allolev vorm, vali sobiv teenus ja treeningaeg.</p></div>
+      <div class="step__arrow" aria-hidden="true">→</div>
+      <div class="step"><div class="step__number">2</div><h3 class="step__title" data-i18n="step2_title">Kinnita aeg</h3><p class="step__desc" data-i18n="step2_desc">Saan sinuga ühendust ja kinnitame treeninguaja.</p></div>
+      <div class="step__arrow" aria-hidden="true">→</div>
+      <div class="step"><div class="step__number">3</div><h3 class="step__title" data-i18n="step3_title">Tule väljakule</h3><p class="step__desc" data-i18n="step3_desc">Võta kaasa spordijalatsid ja hea tuju – reket on olemas!</p></div>
+    </div>
+  </div>
+</section>
+<section class="section" id="kkk">
+  <div class="container container--narrow">
+    <p class="section__label section__label--center" data-i18n="faq_label">KKK</p>
+    <h2 class="section__title section__title--center" data-i18n="faq_title">Korduma kippuvad küsimused</h2>
+    <div class="faq-list">
+      <details class="faq-item"><summary class="faq-item__q" data-i18n="faq1_q">Kas mul peab oma reket olema?</summary><p class="faq-item__a" data-i18n="faq1_a">Ei pea. Mul on reketid olemas nii tennise kui padeli jaoks.</p></details>
+      <details class="faq-item"><summary class="faq-item__q" data-i18n="faq2_q">Mis juhtub, kui sajab vihma?</summary><p class="faq-item__a" data-i18n="faq2_a">Kui ilm ei luba mängida, lepime kokku uue aja.</p></details>
+      <details class="faq-item"><summary class="faq-item__q" data-i18n="faq3_q">Kas trennid sobivad täiesti algajatele?</summary><p class="faq-item__a" data-i18n="faq3_a">Absoluutselt! Enamik minu treenitavatest alustavadki nullist.</p></details>
+      <details class="faq-item"><summary class="faq-item__q" data-i18n="faq4_q">Kuidas toimub maksmine?</summary><p class="faq-item__a" data-i18n="faq4_a">Makse toimub ülekandega enne treeningut või kohapeal sularahas.</p></details>
+      <details class="faq-item"><summary class="faq-item__q" data-i18n="faq5_q">Kus täpselt väljakud asuvad?</summary><p class="faq-item__a" data-i18n="faq5_a">Meie väljakud asuvad Haapsalus, looduskaunis kohas mere ja metsa lähedal.</p></details>
+    </div>
+  </div>
+</section>
+<section class="section section--dark" id="broneering">
+  <div class="container container--narrow">
+    <p class="section__label section__label--center" data-i18n="form_label">Broneering</p>
+    <h2 class="section__title section__title--center" data-i18n="form_title">Broneeri treening või registreeru turniirile</h2>
+    <p class="section__desc" data-i18n="form_desc">Täida allolev vorm ja võtan sinuga peatselt ühendust.</p>
+    <form class="booking-form" id="bookingForm" novalidate>
+      <div class="form-row"><div class="form-group"><label for="name" data-i18n="form_name">Nimi</label><input type="text" id="name" name="name" required placeholder=" "></div><div class="form-group"><label for="email" data-i18n="form_email">E-post</label><input type="email" id="email" name="email" required placeholder=" "></div></div>
+      <div class="form-row"><div class="form-group"><label for="phone" data-i18n="form_phone">Telefon</label><input type="tel" id="phone" name="phone" required placeholder=" "></div><div class="form-group"><label for="service" data-i18n="form_service">Teenus</label><select id="service" name="service" required><option value="" disabled selected data-i18n="form_service_placeholder">Vali teenus</option><option value="tennis" data-i18n="form_service_tennis">Tennise treening</option><option value="padel" data-i18n="form_service_padel">Padeli treening</option><option value="tournament" data-i18n="form_service_tournament">Turniir</option></select></div></div>
+      <div class="form-row"><div class="form-group"><label for="level" data-i18n="form_level">Tase</label><select id="level" name="level" required><option value="" disabled selected data-i18n="form_level_placeholder">Vali tase</option><option value="beginner" data-i18n="form_level_beginner">Algaja</option><option value="recreational" data-i18n="form_level_recreational">Harrastaja</option><option value="advanced" data-i18n="form_level_advanced">Edasijõudnu</option></select></div><div class="form-group"><label for="times" data-i18n="form_times">Sobivad ajad</label><input type="text" id="times" name="times" placeholder=" "></div></div>
+      <div class="form-group form-group--full"><label for="comments" data-i18n="form_comments">Lisainfo</label><textarea id="comments" name="comments" rows="4" placeholder=" "></textarea></div>
+      <button type="submit" class="btn btn--primary btn--lg btn--full" data-i18n="form_submit">Saada päring</button>
+      <div class="form-success" id="formSuccess" hidden><div class="form-success__icon">✓</div><p data-i18n="form_success">Aitäh! Sinu päring on saadetud.</p></div>
+    </form>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand"><svg class="footer__logo" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/><circle cx="20" cy="20" r="9" stroke="currentColor" stroke-width="1.5" opacity="0.6"/><path d="M11 20h18M20 11v18" stroke="currentColor" stroke-width="1.2" opacity="0.6"/></svg><span>Hapsal Tennis & Padel</span></div>
+    <p class="footer__copy" data-i18n="footer_copy">© 2026 Hapsal Tennis & Padel. Haapsalu, Eesti.</p>
+  </div>
+</footer>
+<script src="./app.js"></script>
+</body>
+</html>
