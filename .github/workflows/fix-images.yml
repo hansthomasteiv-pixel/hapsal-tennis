@@ -1,6 +1,8 @@
 name: Fix Image Binary Encoding
 
 on:
+  push:
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
@@ -14,67 +16,60 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check if images need fixing
+        id: check
+        run: |
+          FIRST_CHARS=$(head -c 4 assets/courts-1.jpg)
+          echo "First chars of courts-1.jpg: $FIRST_CHARS"
+          if [ "$FIRST_CHARS" = "/9j/" ]; then
+            echo "needs_fix=true" >> $GITHUB_OUTPUT
+            echo "Images need fixing (still base64 text)"
+          else
+            echo "needs_fix=false" >> $GITHUB_OUTPUT
+            echo "Images already binary - skipping"
+          fi
 
       - name: Fix image files (decode base64 text to binary)
+        if: steps.check.outputs.needs_fix == 'true'
         run: |
           set -e
-          
-          # Fix courts-1.jpg
           echo "Fixing courts-1.jpg..."
           base64 -d assets/courts-1.jpg > /tmp/courts-1-fixed.jpg
           mv /tmp/courts-1-fixed.jpg assets/courts-1.jpg
           echo "courts-1.jpg: $(wc -c < assets/courts-1.jpg) bytes"
-          
-          # Fix courts-2.jpg
           echo "Fixing courts-2.jpg..."
           base64 -d assets/courts-2.jpg > /tmp/courts-2-fixed.jpg
           mv /tmp/courts-2-fixed.jpg assets/courts-2.jpg
           echo "courts-2.jpg: $(wc -c < assets/courts-2.jpg) bytes"
-          
-          # Fix courts-3.jpg
           echo "Fixing courts-3.jpg..."
           base64 -d assets/courts-3.jpg > /tmp/courts-3-fixed.jpg
           mv /tmp/courts-3-fixed.jpg assets/courts-3.jpg
           echo "courts-3.jpg: $(wc -c < assets/courts-3.jpg) bytes"
-          
-          # Fix coach.jpg
           echo "Fixing coach.jpg..."
           base64 -d assets/coach.jpg > /tmp/coach-fixed.jpg
           mv /tmp/coach-fixed.jpg assets/coach.jpg
           echo "coach.jpg: $(wc -c < assets/coach.jpg) bytes"
-          
-          # Verify image headers
           echo "Verifying file types..."
-          file assets/*.jpg
+          file assets/courts-1.jpg assets/courts-2.jpg assets/courts-3.jpg assets/coach.jpg
 
       - name: Remove test files
+        if: steps.check.outputs.needs_fix == 'true'
         run: |
-          # Remove any test files created during debugging
-          for f in assets/test_binary.jpg assets/test_binary2.jpg assets/test_double_b64.jpg \
-                   assets/test_binary3.jpg assets/test_text.txt assets/test_hello.txt \
-                   assets/test_tiny.bin assets/test_tiny2.bin assets/test_latin1.bin \
-                   assets/test_latin1b.bin; do
+          for f in assets/test_binary.jpg assets/test_binary2.jpg assets/test_double_b64.jpg assets/test_binary3.jpg assets/test_text.txt assets/test_hello.txt assets/test_tiny.bin assets/test_tiny2.bin assets/test_latin1.bin assets/test_latin1b.bin; do
             if [ -f "$f" ]; then
               echo "Removing $f"
-              rm "$f"
+              git rm "$f"
             fi
           done
 
       - name: Commit and push fixed images
+        if: steps.check.outputs.needs_fix == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add assets/
-          git status
           git diff --cached --stat
-          git commit -m "Fix: Convert image files from base64 text to proper binary
-
-          The images were incorrectly stored as base64-encoded text strings.
-          This commit decodes them back to proper binary JPEG/PNG format.
-          
-          Files fixed:
-          - assets/courts-1.jpg
-          - assets/courts-2.jpg
-          - assets/courts-3.jpg
-          - assets/coach.jpg"
+          git commit -m "Fix: Convert image files from base64 text to proper binary"
           git push origin main
