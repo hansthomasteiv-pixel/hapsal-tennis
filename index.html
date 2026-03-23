@@ -272,11 +272,17 @@
     <h2 class="section__title section__title--center" data-i18n="form_title">Broneeri treening või registreeru turniirile</h2>
     <p class="section__desc" data-i18n="form_desc">Täida allolev vorm ja võtan sinuga peatselt ühendust.</p>
 
-    <form class="booking-form" id="bookingForm" novalidate>
+    <form class="booking-form" id="bookingForm" action="https://formsubmit.co/hansthomasteiv@gmail.com" method="POST" novalidate>
+      <!-- FormSubmit config -->
+      <input type="hidden" name="_subject" value="Uus broneering – Hapsal Tennis & Padel">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="text" name="_honey" style="display:none">
+
       <div class="form-row">
         <div class="form-group">
           <label for="name" data-i18n="form_name">Nimi</label>
-          <input type="text" id="name" name="name" required placeholder=" ">
+          <input type="text" id="name" name="Nimi" required placeholder=" ">
         </div>
         <div class="form-group">
           <label for="email" data-i18n="form_email">E-post</label>
@@ -287,15 +293,15 @@
       <div class="form-row">
         <div class="form-group">
           <label for="phone" data-i18n="form_phone">Telefon</label>
-          <input type="tel" id="phone" name="phone" required placeholder=" ">
+          <input type="tel" id="phone" name="Telefon" required placeholder=" ">
         </div>
         <div class="form-group">
           <label for="service" data-i18n="form_service">Teenus</label>
-          <select id="service" name="service" required>
+          <select id="service" name="Teenus" required>
             <option value="" disabled selected data-i18n="form_service_placeholder">Vali teenus</option>
-            <option value="tennis" data-i18n="form_service_tennis">Tennise treening</option>
-            <option value="padel" data-i18n="form_service_padel">Padeli treening</option>
-            <option value="tournament" data-i18n="form_service_tournament">Turniir</option>
+            <option value="Tennise treening" data-i18n="form_service_tennis">Tennise treening</option>
+            <option value="Padeli treening" data-i18n="form_service_padel">Padeli treening</option>
+            <option value="Turniir" data-i18n="form_service_tournament">Turniir</option>
           </select>
         </div>
       </div>
@@ -303,29 +309,35 @@
       <div class="form-row">
         <div class="form-group">
           <label for="level" data-i18n="form_level">Tase</label>
-          <select id="level" name="level" required>
+          <select id="level" name="Tase" required>
             <option value="" disabled selected data-i18n="form_level_placeholder">Vali tase</option>
-            <option value="beginner" data-i18n="form_level_beginner">Algaja</option>
-            <option value="recreational" data-i18n="form_level_recreational">Harrastaja</option>
-            <option value="advanced" data-i18n="form_level_advanced">Edasijõudnu</option>
+            <option value="Algaja" data-i18n="form_level_beginner">Algaja</option>
+            <option value="Harrastaja" data-i18n="form_level_recreational">Harrastaja</option>
+            <option value="Edasijõudnu" data-i18n="form_level_advanced">Edasijõudnu</option>
           </select>
         </div>
         <div class="form-group">
           <label for="times" data-i18n="form_times">Sobivad ajad</label>
-          <input type="text" id="times" name="times" placeholder=" ">
+          <input type="text" id="times" name="Sobivad ajad" placeholder=" ">
         </div>
       </div>
 
       <div class="form-group form-group--full">
         <label for="comments" data-i18n="form_comments">Lisainfo</label>
-        <textarea id="comments" name="comments" rows="4" placeholder=" "></textarea>
+        <textarea id="comments" name="Lisainfo" rows="4" placeholder=" "></textarea>
       </div>
 
       <button type="submit" class="btn btn--primary btn--lg btn--full" data-i18n="form_submit">Saada päring</button>
 
       <div class="form-success" id="formSuccess" hidden>
         <div class="form-success__icon">✓</div>
-        <p data-i18n="form_success">Aitäh! Sinu päring on saadetud. Võtan sinuga peatselt ühendust.</p>
+        <p data-i18n="form_success">Aitäh! Võtan sinuga 24 tunni jooksul ühendust, et aeg kinnitada.</p>
+      </div>
+
+      <div class="form-error" id="formError" hidden>
+        <div class="form-error__icon">✕</div>
+        <p data-i18n="form_error">Midagi läks valesti. Palun proovi uuesti või kirjuta mulle otse: <a href="mailto:hansthomasteiv@gmail.com">hansthomasteiv@gmail.com</a></p>
+        <button type="button" class="btn btn--outline" id="formRetry" data-i18n="form_retry">Proovi uuesti</button>
       </div>
     </form>
   </div>

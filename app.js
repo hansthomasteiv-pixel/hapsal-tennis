@@ -108,7 +108,9 @@ const translations = {
     form_times: "Sobivad ajad",
     form_comments: "Lisainfo",
     form_submit: "Saada päring",
-    form_success: "Aitäh! Sinu päring on saadetud. Võtan sinuga peatselt ühendust.",
+    form_success: "Aitäh! Võtan sinuga 24 tunni jooksul ühendust, et aeg kinnitada.",
+    form_error: "Midagi läks valesti. Palun proovi uuesti või kirjuta mulle otse:",
+    form_retry: "Proovi uuesti",
 
     // Footer
     footer_copy: "© 2026 Hapsal Tennis & Padel. Haapsalu, Eesti."
@@ -222,7 +224,9 @@ const translations = {
     form_times: "Preferred times",
     form_comments: "Additional info",
     form_submit: "Send request",
-    form_success: "Thank you! Your request has been sent. I'll get back to you soon.",
+    form_success: "Thank you! I'll contact you within 24 hours to confirm the time.",
+    form_error: "Something went wrong. Please try again or email me directly:",
+    form_retry: "Try again",
 
     // Footer
     footer_copy: "© 2026 Hapsal Tennis & Padel. Haapsalu, Estonia."
@@ -325,8 +329,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 /* ===== FORM HANDLING ===== */
 const form = document.getElementById('bookingForm');
 const formSuccess = document.getElementById('formSuccess');
+const formError = document.getElementById('formError');
+const formRetry = document.getElementById('formRetry');
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   // Basic validation
@@ -344,15 +350,43 @@ form.addEventListener('submit', (e) => {
 
   if (!valid) return;
 
-  // Simulate form submission
+  // Submit via AJAX to FormSubmit.co
   const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
   submitBtn.disabled = true;
   submitBtn.textContent = currentLang === 'et' ? 'Saadan...' : 'Sending...';
 
-  setTimeout(() => {
+  try {
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      form.style.display = 'none';
+      formSuccess.hidden = false;
+      formError.hidden = true;
+    } else {
+      throw new Error('Server responded with ' + response.status);
+    }
+  } catch (error) {
+    console.error('Form submission error:', error);
     form.style.display = 'none';
-    formSuccess.hidden = false;
-  }, 800);
+    formError.hidden = false;
+    formSuccess.hidden = true;
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  }
+});
+
+// Retry button
+formRetry.addEventListener('click', () => {
+  form.style.display = '';
+  formError.hidden = true;
+  form.querySelector('button[type="submit"]').disabled = false;
 });
 
 /* ===== SCROLL REVEAL ===== */

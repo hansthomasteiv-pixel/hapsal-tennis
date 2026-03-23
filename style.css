@@ -907,6 +907,51 @@ a, button, [role="button"], input, textarea, select {
   max-width: 100%;
 }
 
+.form-error {
+  text-align: center;
+  padding: var(--space-8);
+  animation: fadeIn 0.4s ease;
+}
+
+.form-error__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #a13544;
+  color: #fff;
+  font-size: var(--text-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-4);
+}
+
+.form-error p {
+  color: var(--color-dark-muted);
+  max-width: 100%;
+  margin-bottom: var(--space-4);
+}
+
+.form-error a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+.form-error a:hover {
+  color: var(--color-accent-hover);
+}
+
+.form-error .btn {
+  margin-top: var(--space-4);
+  border-color: var(--color-dark-muted);
+  color: var(--color-dark-muted);
+}
+
+.form-error .btn:hover {
+  border-color: var(--color-dark-text);
+  color: var(--color-dark-text);
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
